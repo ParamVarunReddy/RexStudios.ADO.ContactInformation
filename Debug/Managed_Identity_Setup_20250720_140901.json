@@ -1,0 +1,208 @@
+{
+	"created_on": "2025-07-20T21:09:01.610Z",
+	"version": 1,
+	"name": "Managed Identity Setup",
+	"type": "collection",
+	"items": [
+		{
+			"name": "Get Plugin Assembly",
+			"type": "request",
+			"items": [],
+			"properties": {
+				"endpoint": "webapi",
+				"requestType": "retrievemultiple",
+				"configuration": {
+					"version": "v9.2",
+					"async": true,
+					"tokenHeader": false,
+					"impersonate": false,
+					"impersonateType": "mscrmcallerid",
+					"impersonateId": "",
+					"formattedValues": true,
+					"retrieveCount": false,
+					"topCount": "",
+					"primaryEntity": {
+						"logicalName": "pluginassembly",
+						"schemaName": "PluginAssembly",
+						"label": "Plug-in Assembly",
+						"entitySetName": "pluginassemblies"
+					},
+					"primaryIdField": "pluginassemblyid",
+					"fields": [
+						{
+							"logicalName": "pluginassemblyid",
+							"schemaName": "PluginAssemblyId",
+							"label": "(PluginAssemblyId ID)",
+							"type": "Uniqueidentifier",
+							"oDataName": "pluginassemblyid"
+						},
+						{
+							"logicalName": "managedidentityid",
+							"schemaName": "ManagedIdentityId",
+							"label": "ManagedIdentityId",
+							"type": "Lookup",
+							"oDataName": "_managedidentityid_value"
+						},
+						{
+							"logicalName": "name",
+							"schemaName": "Name",
+							"label": "Name",
+							"type": "String",
+							"oDataName": "name"
+						}
+					],
+					"oneToMany": [],
+					"manyToOne": [],
+					"manyToMany": [],
+					"filterCriteria": {
+						"filterType": "groups",
+						"filterGroupsLogic": "and",
+						"filterGroups": [
+							{
+								"filterFields": [
+									{
+										"logicalName": "name",
+										"schemaName": "Name",
+										"label": "Name",
+										"type": "String",
+										"oDataName": "name",
+										"operator": "contains",
+										"requiredValue": true,
+										"value": "RexStudios.ADO.ContactInformation"
+									}
+								],
+								"filterType": "fields",
+								"filterFieldsLogic": "and"
+							}
+						]
+					},
+					"orderFields": []
+				}
+			}
+		},
+		{
+			"name": "CreateManagedIdentity",
+			"type": "request",
+			"items": [],
+			"properties": {
+				"endpoint": "webapi",
+				"requestType": "create",
+				"configuration": {
+					"version": "v9.2",
+					"async": true,
+					"tokenHeader": false,
+					"impersonate": false,
+					"impersonateType": "mscrmcallerid",
+					"impersonateId": "",
+					"formattedValues": true,
+					"returnRecord": false,
+					"detectDuplicates": false,
+					"primaryEntity": {
+						"logicalName": "managedidentity",
+						"schemaName": "ManagedIdentity",
+						"label": "Managed Identity",
+						"entitySetName": "managedidentities"
+					},
+					"primaryIdField": "managedidentityid",
+					"fields": [],
+					"setFields": [
+						{
+							"logicalName": "applicationid",
+							"schemaName": "ApplicationId",
+							"label": "ApplicationId",
+							"type": "Uniqueidentifier",
+							"oDataName": "applicationid",
+							"value": "231923f9-fe7f-4785-bee4-ad5ff0064d84"
+						},
+						{
+							"logicalName": "managedidentityid",
+							"schemaName": "ManagedIdentityId",
+							"label": "(ManagedIdentity Id ID)",
+							"type": "Uniqueidentifier",
+							"oDataName": "managedidentityid",
+							"value": "2426f023-8d3d-41ef-bec3-45b578d6ba9d"
+						},
+						{
+							"logicalName": "credentialsource",
+							"schemaName": "CredentialSource",
+							"label": "Credential Source",
+							"type": "Picklist",
+							"oDataName": "credentialsource",
+							"value": "2"
+						},
+						{
+							"logicalName": "subjectscope",
+							"schemaName": "SubjectScope",
+							"label": "Subject Scope",
+							"type": "Picklist",
+							"oDataName": "subjectscope",
+							"value": "1"
+						},
+						{
+							"logicalName": "tenantid",
+							"schemaName": "TenantId",
+							"label": "TenantId",
+							"type": "Uniqueidentifier",
+							"oDataName": "tenantid",
+							"value": "1fb7b47f-ba1f-49ab-8010-3c8caa1100c2"
+						}
+					],
+					"oneToMany": [],
+					"manyToOne": [],
+					"manyToMany": []
+				}
+			}
+		},
+		{
+			"name": "Update Plugin Assembly",
+			"type": "request",
+			"items": [],
+			"properties": {
+				"endpoint": "webapi",
+				"requestType": "update",
+				"configuration": {
+					"version": "v9.2",
+					"async": true,
+					"tokenHeader": false,
+					"impersonate": false,
+					"impersonateType": "mscrmcallerid",
+					"impersonateId": "",
+					"formattedValues": true,
+					"returnRecord": false,
+					"detectDuplicates": false,
+					"prevent": "none",
+					"primaryEntity": {
+						"logicalName": "pluginassembly",
+						"schemaName": "PluginAssembly",
+						"label": "Plug-in Assembly",
+						"entitySetName": "pluginassemblies"
+					},
+					"useAlternateKey": false,
+					"alternateKeyName": "",
+					"alternateKeyFields": [],
+					"primaryId": "4d6eadb4-9856-446a-9a35-356305de3f97",
+					"primaryIdField": "pluginassemblyid",
+					"fields": [],
+					"setFields": [
+						{
+							"logicalName": "managedidentityid",
+							"schemaName": "ManagedIdentityId",
+							"label": "ManagedIdentityId",
+							"type": "Lookup",
+							"oDataName": "_managedidentityid_value",
+							"value": {
+								"entityType": "managedidentity",
+								"entitySetName": "managedidentities",
+								"navigationProperty": "managedidentityid",
+								"id": "2426f023-8d3d-41ef-bec3-45b578d6ba9d"
+							}
+						}
+					],
+					"oneToMany": [],
+					"manyToOne": [],
+					"manyToMany": []
+				}
+			}
+		}
+	]
+}
